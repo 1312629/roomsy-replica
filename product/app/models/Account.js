@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     bcrypt = require('bcrypt');
 
 // User Schema
-var userSchema = mongoose.Schema({
+var accountSchema = mongoose.Schema({
 
     email        : String,
     password     : String
@@ -11,15 +11,15 @@ var userSchema = mongoose.Schema({
 //------------------------------------------------------------------------
 // Schema Methods 
 // generating a hash
-userSchema.statics.generateHash = function(password) {
+accountSchema.statics.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 // checking if password is valid
-userSchema.methods.validPassword = function(password) {
+accountSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
 //------------------------------------------------------------------------
-var Model = mongoose.model('User', userSchema);
+var Model = mongoose.model('Account', accountSchema);
 module.exports = Model;

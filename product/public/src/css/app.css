@@ -1,0 +1,14 @@
+.btns {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.equal {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.equal > div[class*='col-'] {  
+  display: flex;
+  flex-direction: column;
+}

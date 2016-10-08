@@ -1,5 +1,6 @@
 var passport = require('passport'),
-    LocalStrategy = require('passport-local');
+    LocalStrategy = require('passport-local'),
+    Account = Utils.getModel('Account');
 
 // =========================================================================
 // LOCAL STRATEGY SETUP
@@ -13,20 +14,20 @@ module.exports = function() {
         },
         function(email, password, done) {
             
-            User.findOne({ email: email }, function(err, user) {
+            Account.findOne({ email: email }, function(err, account) {
                 
                 if (err) return done(err);
-                if (user) return done(null, false, 'Email is already taken.');
+                if (account) return done(null, false, 'Email is already taken.');
 
-                var newUser = new User({
+                var newAccount = new Account({
                     email: email,
-                    password: User.generateHash(password)
+                    password: Account.generateHash(password)
                 });
 
-                newUser.save(function(err) {
+                newAccount.save(function(err) {
 
                     if (err) return done(err);
-                    return done(null, newUser);
+                    return done(null, newAccount);
                 })
             })
         })
@@ -37,13 +38,13 @@ module.exports = function() {
             passwordField : 'password'
         },
         function(email, password, done) {
-            User.findOne({ email: email }, function(err, user) {
+            Account.findOne({ email: email }, function(err, account) {
 
                 if (err) return done(err);
-                if (!user) return done(null, false, { message: 'No user found.' });
-                if (!user.validPassword(password)) return done(null, false, { message: 'Oops! Wrong password.' });
+                if (!account) return done(null, false, { message: 'No account found.' });
+                if (!account.validPassword(password)) return done(null, false, { message: 'Oops! Wrong password.' });
 
-                return done(null, user);
+                return done(null, account);
             })
         })
     );
