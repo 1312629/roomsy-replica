@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--Import Google Icon Font-->
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://use.fontawesome.com/50ca246d2d.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            a{
+              cursor: pointer !important;
+            }
+            /* HEADER */
+            /*#header{
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                padding: 15px 0px;
+                background-color: #e9ece2;
+                border-top: 3px solid #f5f6ef;
+                border-bottom: 3px solid #f5f6ef;
+                box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+            }
+            .wrapper{
+                margin: 0 auto;
+                width: 1170px;
+                overflow: auto;
+            }
+            .left{
+                float: left;
+            }
+            .left a{
+                text-decoration: none;
+                font-size: 24px;
+                line-height: 40px;
+                font-weight: 600;
+                color: #333;
+                text-shadow: 2px 2px 1px #fff;
+                text-transform: uppercase;
+                vertical-align: text-top;
+                padding: 0px 20px;
+            }
+            .left img{
+                vertical-align: baseline;
+            }
+            .right {
+                float: right;
+                font-weight: lighter;
+                font-size: 18px;
+            }
+            .right ul{
+                margin-right: 10px;
+                float: left;
+                display: inline-block;
+                list-style: none;
+                overflow: auto;
+                margin: 0;
+
+            }
+            .right ul li{
+                float: left;
+            }
+            .right ul li a{
+                text-transform: uppercase;
+                float: none;
+                padding: 10px 15px 10px;
+                color: #53564e;
+                text-decoration: none;
+                text-shadow: 0 1px 0 #eff1e8;
+                display: block;
+                line-height: 20px;
+            }
+            .active a{
+                color: #555555;
+                box-shadow: inset 2px 2px 0px rgba(0, 0, 0, 0.2);
+                border-radius: 10px;
+                background-color: #dce0cf;
+            }
+            .top_control{
+                margin-left: 10px;
+                margin-top: 5px;
+                float: right;
+                display: inline-block;
+            }
+            .top_control a{
+                float: right;
+                padding: 3px 10px;
+                text-decoration: none;
+                text-transform: uppercase;
+                font-size: 18px;
+                line-height: 20px;
+            }
+            #btnLogin{
+                margin-left: 15px;
+            }*/
+
+            /* finish HEADER */
+
+            /* SLIDER */
+            #slider{
+                margin-top: 76px;
+                text-align: center;
+                background: #76a3a0 url(http://www.roomsy.com/assets/images/slider-noise-blue-bg.jpg) top left repeat;
+                padding-top: 50px;
+            }
+            .slider-header{
+                font-size: 44px;
+                line-height: 56px;
+                text-align: center;
+                font-weight: 700;
+                text-transform: uppercase;
+                color: #fff;
+                text-shadow: 2px 2px 0px #58807d;
+                margin: 0px;
+                margin-bottom: 10px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #5c8a87;
+                -webkit-box-shadow: 0px 2px 0px #95b7b5;
+                -moz-box-shadow: 0px 2px 0px #95b7b5;
+                box-shadow: 0px 2px 0px #95b7b5;
+            }
+            .slider-header strong{
+                color:#ffecb0;
+            }
+            .slider-sub-header{
+                color: #bdd3d2;
+                font-weight: 300;
+                margin-bottom: 20px;
+                font-size: 24px;
+                margin-top: 0px;
+                line-height: 40px;
+            }
+            .slider-btn{
+                margin: 50px;
+            }
+            .slider-btn a{
+                padding: 20px 35px;
+                font-size: 24px;
+                text-decoration: none;
+                text-align: center;
+                font-weight: 300;
+                border: 1px solid #416664;
+                text-shadow: 0 2px 3px rgba(0, 0, 0, 0.25);
+                background-color: #d98873;
+                box-shadow: 1px 1px 2px 2px rgba(0, 0, 0, 0.2);
+                line-height: 22px;
+            }
+            .sub-signup{
+              color: #fff;
+              font-weight: 300;
+              margin-bottom: 20px;
+              font-size: 16px;
+              margin-top: 10px;
+            }
+            .slider-img{
+              position: relative;
+              overflow: hidden;
+              height: 320px;
+              /*margin-bottom: 50px;*/
+            }
+            .slider-img-left, .slider-img-mid, .slider-img-right{
+              display: inline-block;;
+              position: absolute;
+              height: auto;
+              transition: 0.5s;
+              bottom: -10%;
+            }
+            .slider-img-left, .slider-img-right{
+              width: 30%;
+            }
+            .slider-img-left{
+              left: 5%;
+            }
+            .slider-img-left:hover{
+              bottom: 0;
+              left: 0;
+            }
+            .slider-img-right{
+              right: 5%;
+            }
+            .slider-img-right:hover{
+              bottom: 0;
+              right: 0;
+            }
+            .slider-img-mid{
+              width: 40%;
+              left: 30%;
+            }
+            .slider-img-mid:hover{
+              bottom: 0;
+            }
+            .slider-img img{
+              max-width: 100%;
+            }
+
+            /* STATISTIC */
+            #statistic{
+              background: transparent url(http://www.roomsy.com/assets/images/stripped-bg.png) left top repeat;
+              padding-top: 30px;
+              padding-bottom: 30px;
+            }
+            .row {
+              width: 100%;
+              overflow: hidden;
+              margin-right: 0;
+              margin-left: 0;
+            }
+            .span{
+              padding: 20px;
+              width: 25%;
+              float: left;
+              text-align: center;
+            }
+            .span h1, .span h5{
+              color: #3d3b36;
+              font-weight: bold;
+            }
+            .span h5{
+              line-height: 20px;
+              font-size: 16px;
+            }
+            .number{
+              margin: 10px 0;
+              font-size: 42px;
+              line-height: 40px;
+            }
+            /* --------------------------------------------------- */
+
+            /* FEATURES */
+            #features{
+              padding: 30px 0;
+              background: #6c7065;
+            }
+             #features .span i{
+              font-size: 70px;
+              color: #fff;
+              display: block;
+              line-height: 102px;
+            }
+            #features .span{
+              width: 30%;
+              padding: 0 10px;
+              margin-left: 3.3%;
+            }
+            #features h5{
+              display: block;
+              text-decoration: none;
+              font-size: 22px;
+              font-weight: 700;
+              text-transform: uppercase;
+              color: #cccccc;
+              margin-bottom: 5px;
+              padding-bottom: 10px;
+              border-bottom: 3px solid #797d71;
+            }
+            #features p{
+              font-size: 18px;
+              line-height: 22px;
+              color: #b8bbb3;
+              text-transform: none;
+              font-weight: 300;
+            }
+            /* --------------------------------------------------- */
+
+            /* CLIENTS */
+            #clients{
+              border-top: 3px solid #fff;
+              padding: 30px 0;
+              background-color: #ebede3;
+            }
+            .clients-header{
+              margin-top: 10px;
+              margin-left: 3.3%;
+              font-weight: 400;
+              border-bottom: 3px solid #e3e4dd;
+              -webkit-box-shadow: 0px 1px 0px #c2c4bb;
+              -moz-box-shadow: 0px 1px 0px #c2c4bb;
+              box-shadow: 0px 1px 0px #c2c4bb;
+              padding-bottom: 10px;
+              margin-bottom: 15px;
+              font-size: 28px;
+              line-height: 30px;
+              color: #3d3b36;
+            }
+            #clients .span{
+              width: 21.7%;
+              margin-left: 3.3%;
+              padding: 0;
+            }
+            .white-card{
+              text-align: left;
+              padding: 10px;
+              background-color: #f8f9f4;
+              -webkit-box-shadow: 0px 1px 4px 1px #b4b6a9, 2px 2px 1px 0px white inset;
+              -moz-box-shadow: 0px 1px 4px 1px #b4b6a9, 2px 2px 1px 0px white inset;
+              box-shadow: 0px 1px 4px 1px #b4b6a9, 2px 2px 1px 0px white inset;
+              margin-bottom: 20px;
+              background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f8f9f4), color-stop(100%, #fdfdfb));
+              background-image: -webkit-linear-gradient(#f8f9f4, #fdfdfb);
+              background-image: -moz-linear-gradient(#f8f9f4, #fdfdfb);
+              background-image: -o-linear-gradient(#f8f9f4, #fdfdfb);
+              background-image: -ms-linear-gradient(#f8f9f4, #fdfdfb);
+              background-image: linear-gradient(#f8f9f4, #fdfdfb);
+            }
+            .white-card .img-w{
+              text-align: center;
+              margin-bottom: 10px;
+              -webkit-box-shadow: 0px 0px 3px 3px white;
+              -moz-box-shadow: 0px 0px 3px 3px white;
+              box-shadow: 0px 0px 3px 3px white;
+            }
+            .white-card .img-w.hover-fader {
+              position: relative;
+            }
+            .white-card h5{
+              font-weight: 400;
+              color: #31302e;
+              font-size: 18px;
+              margin-top: 0px;
+              margin-bottom: 10px;
+              padding-bottom: 10px;
+              border-bottom: 1px solid #cfd1c6;
+              -webkit-box-shadow: 0px 1px 0px white;
+              -moz-box-shadow: 0px 1px 0px white;
+              box-shadow: 0px 1px 0px white;
+              text-shadow: -1px -1px white;
+            }
+            .white-card p{
+              font-weight: 100;
+              color: #4f4e4c;
+              font-size: 15px;
+              line-height: 20px;
+              font-family: "Abel", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            img{
+              max-width: 100%;
+              width: auto;
+              height: auto;
+              border: 0;
+            }
+            /* ---------------------------------------- */
+
+            /* WORLD */
+            #world {
+              padding: 30px 0;
+              background-color: #ebede3;
+            }
+            #world .white-card{
+              text-align: center;
+            }
+            #world .span{
+              width: 13.33%;
+              margin-left: 3.33%;
+              padding: 0;
+            }
+            a {
+              color: #929292;
+              text-decoration: none;
+            }
+            a:hover{
+              color: #3c5c68;
+              text-decoration: underline;
+            }
+            #map {
+              margin-left: 3.3%;
+              height: 400px;
+            }
+            /* -----------------------------------------*/
+
+            /* LAST TRY */
+            #last-try{
+              padding: 30px 0;
+              background-color: #ebede3;
+            }
+            #last-try .row{
+              padding-top: 30px;
+              padding-bottom: 30px;
+              border-bottom: 1px dashed #cec6ae;
+              border-top: 1px dashed #cec6ae;
+              margin-bottom: 30px;
+              margin-top: 30px;
+              text-align: center;
+            }
+            #last-try a{
+              padding: 20px 35px;
+              font-size: 24px;
+              text-decoration: none;
+              text-align: center;
+              font-weight: 300;
+              border: 1px solid #416664;
+            }
+            .btn-danger {
+              line-height: 22px;
+              color: #ffffff;
+              text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+              background-color: #d98873;
+              background-image: -moz-linear-gradient(top, #e08e79, #ce7f6b);
+              background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e08e79), to(#ce7f6b));
+              background-image: -webkit-linear-gradient(top, #e08e79, #ce7f6b);
+              background-image: -o-linear-gradient(top, #e08e79, #ce7f6b);
+              background-image: linear-gradient(to bottom, #e08e79, #ce7f6b);
+              background-repeat: repeat-x;
+              filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe08e79', endColorstr='#ffce7f6b', GradientType=0);
+              border-color: #ce7f6b #ce7f6b #b2533b;
+              border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            }
+            /* ------------------------------- */
+
+            /* FOOTER */
+            /*#pre-footer{
+              padding: 30px 0px;
+              background: #92a298 url(../images/slider-noise-bg.jpg) left top repeat;
+              border-top: 10px solid #7c8f83;
+            }
+            #pre-footer .span{
+              width: 30.3%;
+              margin-left: 3%;
+              padding: 0;
+              text-align: left;
+            }
+            #pre-footer .footer-logo {
+                margin-bottom: 15px;
+            }
+            #pre-footer .footer-logo a{
+              line-height: 28px;
+              font-size: 32px;
+              font-weight: 300;
+              color: #c4c7be;
+              text-transform: uppercase;
+              border-bottom: 5px solid #839188;
+          }
+          #pre-footer .footer-logo strong {
+            color: #fff;
+            font-weight: 400;
+          }
+          #pre-footer ul{
+            list-style: none;
+            margin-left: 0px;
+            padding: 0;
+          }
+          #pre-footer ul.footer-address li {
+            color: #fff;
+            text-transform: uppercase;
+          }
+          #pre-footer ul.footer-address li strong {
+            color: #c9d3cd;
+            font-weight: normal
+          }
+          #pre-footer .footer-header {
+            font-size: 24px;
+            border-bottom: 5px solid #8c9a91;
+            padding-bottom: 10px;
+            margin-top: 0px;
+            color: #fff;
+            font-weight: 300;
+            text-transform: uppercase;
+          }
+          #pre-footer .footer-list {
+            list-style: square;
+            color: #fff;
+            margin: 0 0 10px 25px;
+          }
+          .footer-list li {
+            margin-bottom: 10px;
+          }
+          .footer-list li a {
+            color: #fff;
+            font-size: 16px;
+          }
+          .span-li{
+            float: left;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            width: 46%;
+            line-height: 20px;
+            margin-left: 4%;
+          }
+          .footer-img-list {
+            overflow: auto;
+            margin-top: -5px;
+            margin-left: -4% !important;
+          }
+          .thumbnail {
+            display: block;
+            border-radius: 0;
+            padding: 4px;
+            line-height: 20px;
+            background-color: #FFF;
+            -webkit-transition: all 0.2s ease-in-out;
+            -moz-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+            background-color: #fafbf7;
+            margin-bottom: 0;
+          }
+          .thumbnail:hover{
+            -webkit-box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 8px 4px rgba(0, 0, 0, 0.2);
+          }
+          .holder-for-icons{
+            line-height: 23px;
+            font-size: 16px;
+          }
+          #footer{
+            background-color: #6c7065;
+            padding: 20px 0px;
+            border-top: 2px solid #5a5e54;
+          }
+          #footer .span:first-child{
+            width: 60%;
+            padding: 0;
+            margin-left: 3%;
+            text-align: left;
+          }
+          #footer .span:nth-child(2){
+            width: 30%;
+            margin-left: 7%;
+            padding: 0;
+            text-align: left;
+          }
+          .copyright{
+            color: #cccccc;
+            text-transform: uppercase;
+          }*/
+          /* ------------------------------------------ */
+
+          /*#btnHelp{
+            position: fixed;
+            line-height: normal;
+            bottom: 15px;
+            right: 20px;
+            color: #fff;
+            background-color: #3acfef;
+            padding: .6em 1.2em;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: .2em solid currentColor;
+            color: #fff;
+            background-color: #3acfef;
+            font-family: Helvetica,Arial,sans-serif;
+            font-size: 14px;
+            outline: 0;
+            cursor: pointer;
+            -webkit-transition: box-shadow .1s;
+            transition: box-shadow .1s;
+            margin: 5px;
+            z-index: 1000;
+          }
+          #btnHelp:hover{
+            box-shadow: 0 1.5px 4px rgba(0,0,0,.12),0 1.5px 6px rgba(0,0,0,.06);
+          }*/
+        </style>
+    </head>
+    <body>
+        <button id="btnHelp" class="grv-tab grv-tab-rectangle grv-tab-light-colors">Click Here for Help</button>
+        <!-- HEADER -->
+        <div id="header">
+            <div class="wrapper">
+                <div class="left">
+                    <a href="">
+                        <img src="http://www.roomsy.com/assets/images/logo.png"> ROOMSY
+                    </a>
+                </div>
+                <div class="right">
+                    <ul>
+                        <li class="active"><a href="home.html">HOME</a></li>
+                        <li><a href="">PRICING</a></li>
+                        <li><a href="contact.html">CONTACT US</a></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img src="http://www.roomsy.com/assets/images/flags/en.png" alt="current language country flag">
+                                <span>English</span>
+                                <span class="caret"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="top_control">
+                        <a href="" id="btnLogin" class="btn-success">LOGIN</a>
+                        <a href="" id="btnTrial" class="btn-danger">START YOUR FREE TRIAL</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- finish header -->
+
+        <!-- HOMEPAGE -->
+        <div id="slider">
+            <div class="wrapper">
+                <h1 class="slider-header"><strong>EASY</strong> Property Management System</h1>
+                <h2 class="slider-sub-header">
+                    <strong>Perfect</strong> solution for hotels, motels, hostels, apartments, RV parks, and more!
+                </h2>
+                <div class="slider-btn">
+                    <a href="https://v2.roomsy.com/auth/register" class="btn btn-danger">START YOUR FREE TRIAL</a>
+                    <div class="sub-signup">No credit card required, no software to install</div>
+                </div>
+                <div class="slider-img">
+                  <div class="slider-img-left">
+                    <a>
+                      <img src="http://www.roomsy.com/assets/images/browser-testimonial.png" />
+                    </a>
+                  </div>
+                  <div class="slider-img-mid">
+                    <a>
+                      <img src="http://www.roomsy.com/assets/images/browser-window1.png" />
+                    </a>
+                  </div>
+                  <div class="slider-img-right">
+                    <a>
+                      <img src="http://www.roomsy.com/assets/images/tour-1.png" />
+                    </a>
+                  </div>
+                </div>
+            </div>
+        </div>
+        <!-- finish HOMEPAGE -->
+
+        <!-- STATISTIC -->
+        <div id="statistic">
+          <div class="wrapper">
+            <div class="row">
+              <div class="span">
+                <h5>Roomsy manages</h5>
+                <h1 class="number">72,047</h1>
+                <h5>rooms</h5>
+              </div>
+              <div class="span">
+                <h5>processed</h5>
+                <h1 class="number">446,149</h1>
+                <h5>bookings</h5>
+              </div>
+              <div class="span">
+                <h5>accomodated</h5>
+                <h1 class="number">379,827</h1>
+                <h5>guests</h5>
+              </div>
+              <div class="span">
+                <h5>in</h5>
+                <h1 class="number">41</h1>
+                <h5>countries</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- finish STATISTIC -->
+
+        <!-- FEATURES -->
+        <div id="features">
+          <div class="wrapper">
+            <div class="row">
+              <div class="span">
+                <i class="fa fa-tachometer" aria-hidden="true"></i>
+                <h5>Property Management System</h5>
+                <p>Roomsy is cloud-based Property Management System. Information is stored on the cloud so you can access your information anywhere there’s internet. There’s no need for installations, maintenance, or backups. All this is handled for you.</p>
+              </div>
+              <div class="span">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+                <h5>WEBSITE + BOOKING ENGINE</h5>
+                <p>Roomsy builds a beautiful website for your property. Update your website with ease. Also, our booking engine lets you receive reservations directly from your website. It integrates with the rest of Property Management System, storing all your information in one place.</p>
+              </div>
+              <div class="span">
+                <i class="fa fa-cogs" aria-hidden="true"></i>
+                <h5>CHANNEL MANAGER INTEGRATION</h5>
+                <p>Roomsy is connected to Online Travel Agencies such as Booking.com, and we are constantly developing new integrations.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- finish FEATURES -->
+
+        <!-- CLIENTS -->
+        <div id="clients">
+          <div class="wrapper">
+            <h3 class="clients-header">
+              Client Testimonials
+            </h3>
+            <div class="row">
+              <div class="span">
+                <div class="white-card">
+                  <div class="img-w hover-fader">
+                    <div>
+                      <img alt="Customer Testimonial: Travelier Motel" src="http://www.roomsy.com/assets/images/testimonial-traveliermotel.png">
+                    </div>
+                  </div>
+                  <h5>Jay</br>Owner, Travelier Motel</h5>
+                  <p>Roomsy has been a real blessing to our hotel. It’s simple and makes check in and check out run smoother and faster. We get more bookings through our website now than any time before.</p>
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <div class="img-w hover-fader">
+                    <div>
+                      <img alt="Customer Testimonial: Johnny's Motel" src="http://www.roomsy.com/assets/images/testimonial-johnnysmotel.png">
+
+                    </div>
+                  </div>
+                  <h5>Clive</br>Owner, Johnny's Motel</h5>
+                  <p>
+                    We have been using Roomsy now for three months and have been quite amazed at the ease of use coupled with the rate of development of the product. Jaeyun(Founder) is easy to deal with focused on his hotel customers needs and product development.
+                  </p>
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <div class="img-w hover-fader">
+                    <div>
+                      <img alt="Customer Testimonial: Siriwan Guesthouse" src="http://www.roomsy.com/assets/images/testimonial-siriwanguesthouse.png">
+                    </div>
+                  </div>
+                  <h5>Andy</br>Owner, Siriwan Guesthouse</h5>
+                  <p>
+                    Roomsy is very easy to set up and use for our guesthouse. Booking engine is extremely helpful to manage our 12 available rooms. There are much more than just mentioned here. Thank you Roomsy. Highly recommended!
+                  </p>
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <div class="img-w hover-fader">
+                    <div>
+                      <img alt="Customer Testimonial: Raya Boutique Hotel" src="http://www.roomsy.com/assets/images/testimonial-rayaboutiquehotel.png">
+                    </div>
+                  </div>
+                  <h5>Mr. Oh</br>Manager, Raya Boutique Hotel</h5>
+                  <p>
+                    We've been using Roomsy for last 4 years, and the software has been reliable and made our operation smooth. I'm currently using Roomsy in 2 other hotels, and I recommend it to all hotel owners I know.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- finish CLIENTS -->
+
+        <!-- WORLD -->
+        <div id="world">
+          <div class="wrapper">
+            <h3 class="clients-header">World ♥ Roomsy</h3>
+            <div class="row">
+              <div class="span">
+                <div class="white-card">
+                  <img alt="Client List: Crossroads Motel" src="http://www.roomsy.com/assets/images/client-crossroadsmotel.png">
+                  </br>
+                  <a href="http://www.crossroadskindersley.ca">
+                    Crossroads Motel
+                  </a>
+                  <br>
+                  Saskatchewan, Canada
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <img alt="Client List: Han River Guesthouse" src="http://www.roomsy.com/assets/images/client-hanriverguesthouse.png">
+                  <br><a href="http://www.booking.com/Han-River-Guesthouse">
+                    Han River Guesthouse
+                  </a>
+                  <br>
+                  Seoul, Korea
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <img alt="Client List: Lemon Tree Resort" src="http://www.roomsy.com/assets/images/client-lemontreeresort.png">
+                  <br>
+                    Lemon Tree Resort
+                  <br>
+                  Koh Samui, Thailand
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <img alt="Client List: Crystal Springs Motel" src="http://www.roomsy.com/assets/images/client-crystalspringsmotel.png">
+                  <br>
+                    Crystal Springs Motel
+                  <br>
+                  British Columbia, Canada
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <img alt="Client List: Birdnest Guesthouse KL" src="http://www.roomsy.com/assets/images/client-birdhouseguesthouse.png">
+                  <br>
+                    Birdnest Guesthouse KL
+                  <br>
+                  Kuala Lumpor, Malaysia
+                </div>
+              </div>
+              <div class="span">
+                <div class="white-card">
+                  <img alt="Client List: Pulman Lodge" src="http://www.roomsy.com/assets/images/client-pulmanlodge.png">
+                  <br>
+                    Pulman Lodge
+                  <br>
+                  Auckland, New Zealand
+                </div>
+              </div>
+            </div>
+            <div id="map"></div>
+          </div>
+        </div>
+        <!-- finish WORLD -->
+
+        <!-- LAST TRY -->
+        <div id="last-try">
+          <div class="wrapper">
+            <div class="row">
+              <a href="https://v2.roomsy.com/auth/register" class="btn btn-danger">START YOUR FREE TRIAL</a>
+            </div>
+          </div>
+        </div>
+        <!-- finish LAST TRY -->
+
+        <footer>
+          <div id="pre-footer">
+            <div class="wrapper">
+              <div class="row">
+                <div class="span">
+                  <div class="footer-logo">
+                    <a><strong>Roomsy</strong> Inc.</a>
+                  </div>
+                  <ul class="footer-address">
+                    <li>
+                      <strong>Address:</strong>
+                      PO Box 72035 Sasamat RPO
+                      <br>
+                      Vancouver, BC V6R4P2
+                    </li>
+                    <li>
+                      <strong>Phone:</strong>
+                      (403) 879-1166
+                    </li>
+                    <li>
+                      <strong>Email:</strong>
+                      support@roomsy.com
+                    </li>
+                  </ul>
+                </div>
+                <div class="span">
+                  <h5 class="footer-header">Links</h5>
+                  <ul class="footer-list">
+                    <li>
+                      <a href="http://www.roomsy.com/en/pricing">Pricing</a>
+                    </li>
+                    <li>
+                      <a href="http://www.roomsy.com/en/features">Features</a>
+                    </li>
+                    <li>
+                      <a href="http://www.roomsy.com/en/contact_us">Contact Us</a>
+                    </li>
+                    <li>
+                      <a href="http://www.roomsy.com/en/tutorial_videos">Tutorial Videos</a>
+                    </li>
+                    <li>
+                      <a href="http://support.roomsy.com/">Support</a>
+                    </li>
+                   <li>
+                      <a href="http://roomsy.userecho.com/">Forum</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="span">
+                  <h5 class="footer-header">Social</h5>
+                  <ul class="footer-img-list">
+                    <li class="span-li">
+                      <a class="thumbnail" href="https://www.facebook.com/roomsyinc/">
+                        <div class="holder-for-icons">
+                          <i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook
+                        </div>
+                      </a>
+                    </li>
+                    <li class="span-li">
+                      <a class="thumbnail" href="https://www.youtube.com/user/RoomsyInc">
+                        <div class="holder-for-icons">
+                          <i class="fa fa-play" aria-hidden="true"></i> Youtube
+                        </div>
+                      </a>
+                    </li>
+                    <li class="span-li">
+                      <a class="thumbnail" href="https://twitter.com/roomsy">
+                        <div class="holder-for-icons">
+                          <i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="footer">
+            <div class="wrapper">
+              <div class="row">
+                <div class="span">
+                  <div class="copyright">
+                    Copyright © 2015 Roomsy Inc. All Rights Reserved.
+                    <a href="https://v2.roomsy.com/auth/show_privacy_policy">Privacy Policy</a>
+                      |
+                    <a href="https://v2.roomsy.com/auth/show_terms_of_service">Terms Of Service</a>
+                  </div>
+                </div>
+                <div class="span">
+                  <a href="https://mixpanel.com/f/partner" rel="nofollow">
+                    <img src="http://cdn.mxpnl.com/site_media/images/partner/badge_blue.png" alt="Mobile Analytics">
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD8mUrEPLYxcQIoaUCtOyVenmwNryWDSGE&callback=initMap" async defer></script>
+        <script>
+          function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 4,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+        </script>
+    </body>
+</html>
