@@ -9,7 +9,7 @@ var apiRouter = Utils.getRouter('api'),
 var appRouter = express.Router();
 appRouter.use('/', navRouter);
 appRouter.use('/api', apiRouter);
-// appRouter.use('/auth', authRouter);
+appRouter.use('/auth', authRouter);
 
 //------------------------------------------------------------------------
 var configObject = {

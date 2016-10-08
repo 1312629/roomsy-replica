@@ -1,17 +1,14 @@
-var passport = require('passport'),
-    express = require('express'),
+var express = require('express'),
     authRouter = express.Router();
 
-authRouter.post('/register',
-  passport.authenticate('local-register', { successRedirect: '/', failureRedirect: '/register.html' })
-  );
+var v1Router = require('./auth/v1/authRouter');
 
-authRouter.post('/login',
-  passport.authenticate('local-login', { failureRedirect : '/failed.html' }),
-  function(req, res) {
-    console.log(req);
-    res.end('hi');
-  });
+//versioning authencation
+authRouter.use('/v1', v1Router);
+
+//latest authencation
+var latest = v1Router;
+authRouter.use('/', v1Router);
 
 
 module.exports = authRouter;

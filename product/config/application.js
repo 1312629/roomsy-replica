@@ -4,8 +4,6 @@ var path = require('path'),
 //------------------------------------------------------------------------
 var express         = require('express'),
     bodyParser      = require('body-parser'),
-    cookieParser    = require('cookie-parser'),
-    session         = require('express-session'),
     morgan          = require('morgan'),
     passport        = require('passport');
 
@@ -34,9 +32,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(Utils.root_path, 'public')));
-// app.use(session({secret: 'mah secret', resave: true, saveUninitialized: true}));
-// app.use(passport.initialize());
-// app.use(passport.session());
+app.use(passport.initialize());
 app.use(config.routing.appRouter);
 
 //------------------------------------------------------------------------
