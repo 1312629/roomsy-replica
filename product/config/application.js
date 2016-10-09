@@ -31,7 +31,7 @@ var config = {
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(Utils.root_path, 'public')));
+app.use(express.static(path.join(Utils.root_path, 'public', 'build')));
 app.use(passport.initialize());
 app.use(config.routing.appRouter);
 

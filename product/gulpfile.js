@@ -4,6 +4,7 @@ var gulp = require('gulp'),
 
 //Compress changed images
 gulp.task('imagemin', function() {
+  
   var imgSrc = './public/src/images/**/*',
       imgDst = './public/build/images';
 
@@ -15,12 +16,13 @@ gulp.task('imagemin', function() {
 
 //Minify html
 gulp.task('htmlmin', function() {
+
   var htmlSrc = './public/src/**/*.html',
       htmlDst = './public/build';
 
   gulp.src(htmlSrc)
     .pipe(plugins.changed(htmlDst))
-    .pipe(plugins.minifyHtml())
+    // .pipe(plugins.minifyHtml())
     .pipe(gulp.dest(htmlDst));
 });
 
@@ -31,9 +33,9 @@ gulp.task('jsmin', function() {
       jsDst = './public/build/js';
 
   gulp.src(jsSrc)
-    .pipe(plugins.concat('app.ini.js'))
-    .pipe(plugins.stripDebug())
-    .pipe(plugins.uglify())
+    .pipe(plugins.concat('app.module.js'))
+    // .pipe(plugins.stripDebug())
+    // .pipe(plugins.uglify())
     .pipe(gulp.dest(jsDst));
 });
 
@@ -57,7 +59,7 @@ gulp.task('watch', function() {
     gulp.watch(['./public/src/partials/*.html', './public/src/*.html'], ['htmlmin']);
 
     //Watch for JS changes
-    gulp.watch('./public/src/js/**/*.js', ['jshint', 'jsmin']);
+    gulp.watch('./public/src/js/**/*.js', ['jsmin']);
 
     //Watch for CSS changes
     gulp.watch('./public/src/css/**/*.css', ['cssmin']);
