@@ -2,59 +2,18 @@
 <html ng-app="app">
 <head>
     <meta charset="UTF-8">
-    <title>Hw01-1312663</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" href="images/icon.png">
+    <title>Roomsy</title>
+
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-	<div class="row equal">
-        
-        <div ng-controller="postController" class="col-md-3 well">
-            
-            Tên sinh viên:<br>
-            <input type="text" ng-model="hoten">
-            MSSV:<br>
-            <input type="text" ng-model="mssv"><br>
-            <button class="btns" ng-click="clientPost()">POST</button>
-        </div>
-        
-        <div ng-controller="putController" class="col-md-3 well">
-            
-            Id sinh viên:<br>
-            <input type="text" ng-model="id">
-            Tên sinh viên:<br>
-            <input type="text" ng-model="hoten">
-            MSSV:<br>
-            <input type="text" ng-model="mssv"><br>
-            <button class="btns" ng-click="clientPut()">PUT</button>
-        </div>
-        
-		<div ng-controller="getController" class="col-md-3 well">
-        
-            <button class="btns" ng-click="clientGetAll()">GET ALL</button><br>
-            <br>Id sinh viên:<br>
-            <input type="text" ng-model="id">
-            <button class="btns" ng-click="clientGet()">GET ONE</button>
-        </div>
-        
-        <div ng-controller="deleteController" class="col-md-3 well">
-            
-            <button class="btns" ng-click="clientDeleteAll()">DELETE ALL</button><br>
-            <br>Id sinh viên:<br>
-            <input type="text" ng-model="id">
-            <button class="btns" ng-click="clientDelete()">DELETE</button>
-        </div>
-	</div>
-    <div ng-controller="responseController">
-        SERVER RESPONSE:<br>
-        <pre>
-        {{response}}
-        </pre> 
-    </div>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-    <script src="js/app.ini.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>
