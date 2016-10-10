@@ -5,6 +5,7 @@ var path = require('path'),
 var express         = require('express'),
     cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'),
+    validator       = require('express-validator'),
     morgan          = require('morgan'),
     passport        = require('passport');
 
@@ -34,9 +35,12 @@ app.use(express.static(path.join(Utils.root_path, 'public', 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(config.authentication.secret));
-app.use(function(req, res, next) {console.log(req.cookies); next()})
+app.use(validator());
 app.use(passport.initialize());
 app.use(config.routing.appRouter);
+app.use(function(err, req, res, next) {
+    res.end(err);
+})
 
 //------------------------------------------------------------------------
 
