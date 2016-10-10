@@ -43,21 +43,6 @@ var appComponents = angular.module('appComponents', ['appControllers']);
 var appControllers = angular.module('appControllers', []);
 
 var appServices = angular.module('appServices', []);
-appComponents.component('about', {
-  template:  '<h3>Hello i am tuan</h3>'
-})
-appComponents.component('home', {
-  templateUrl:  'partials/home.html',
-  controller: 'homeController'
-})
-appComponents.component('login', {
-  templateUrl:  'partials/login.html',
-  controller: 'loginController'
-})
-appComponents.component('register', {
-  templateUrl:  'partials/register.html',
-  controller: 'registerController'
-})
 appControllers.controller('homeController', ['$scope', '$state', 'authService', 'apiService',
 	function($scope, $state, authService, apiService) {
 
@@ -69,8 +54,6 @@ appControllers.controller('homeController', ['$scope', '$state', 'authService', 
 			if (err)
 				return console.log('error loading user info:\n', err);
 
-			
-			alert('hehehe');
 			console.log(result);
 			$scope.authenticated = true;
 			$scope.userInfo = result;
@@ -105,6 +88,21 @@ appControllers.controller('registerController', ['$scope',
 
 	}
 ]);
+appComponents.component('about', {
+  template:  '<h3>Hello i am tuan</h3>'
+})
+appComponents.component('home', {
+  templateUrl:  'partials/home.html',
+  controller: 'homeController'
+})
+appComponents.component('login', {
+  templateUrl:  'partials/login.html',
+  controller: 'loginController'
+})
+appComponents.component('register', {
+  templateUrl:  'partials/register.html',
+  controller: 'registerController'
+})
 appServices.factory('apiService', ['$http', 
 	function($http) {
 
@@ -114,7 +112,7 @@ appServices.factory('apiService', ['$http',
 
 				var promise = new Promise((fullfill, reject) => {
 					$.ajax({
-						url: 'http://127.0.0.1:1337/api/self',
+						url: '/api/users/self',
 						method: 'GET',
 						success: fullfill,
 						error: reject

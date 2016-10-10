@@ -7,7 +7,7 @@ appServices.factory('apiService', ['$http',
 
 				var promise = new Promise((fullfill, reject) => {
 					$.ajax({
-						url: 'http://127.0.0.1:1337/api/self',
+						url: '/api/users/self',
 						method: 'GET',
 						success: fullfill,
 						error: reject

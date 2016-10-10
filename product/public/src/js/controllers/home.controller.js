@@ -9,8 +9,6 @@ appControllers.controller('homeController', ['$scope', '$state', 'authService', 
 			if (err)
 				return console.log('error loading user info:\n', err);
 
-			
-			alert('hehehe');
 			console.log(result);
 			$scope.authenticated = true;
 			$scope.userInfo = result;
