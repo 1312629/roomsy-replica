@@ -1,0 +1,65 @@
+{
+	"v1": {
+		"changelog": "Original",
+		"api": {
+			"students": [
+				{"method": "GET", 		"url": "/api/students", 		"description": "get all students"},
+				{"method": "GET", 		"url": "/api/students/:id", 	"description": "get student with specific :id"},
+				{"method": "POST", 		"url": "/api/students", 		"description": "create new student with id given by server"},
+				{"method": "PUT", 		"url": "/api/students/:id", 	"description": "update student with specific :id"},
+				{"method": "DELETE", 	"url": "/api/students/:id", 	"description": "delete student with specific :id"}
+			]
+		}
+	},
+	"v2": {
+		"changelog": "Add DELETE all students capability, Add \"dev\" api set",
+		"api": {
+			"students": [
+				{"method": "GET", 		"url": "/api/students", 		"description": "get all students"},
+				{"method": "GET", 		"url": "/api/students/:id", 	"description": "get student with specific :id"},
+				{"method": "POST", 		"url": "/api/students", 		"description": "create new student with id given by server"},
+				{"method": "PUT", 		"url": "/api/students/:id", 	"description": "update student with specific :id"},
+				{"method": "DELETE", 	"url": "/api/students", 		"description": "delete all students"},
+				{"method": "DELETE", 	"url": "/api/students/:id", 	"description": "delete student with specific :id"}
+			],
+			"dev": [
+				{"method": "GET", 		"url": "/api/dev/crashme", 		"description": "crash the server on purpose"},
+				{"method": "GET", 		"url": "/api/dev/geterror", 	"description": "get an error message on purpose"}
+			]
+		}
+	},
+	"v3": {
+		"changelog": "Implement HATEOAS, limit & offset query",
+		"api": {
+			"students": [
+				{"method": "GET", 		"url": "/api/students", 		"description": "get all students"},
+				{"method": "GET", 		"url": "/api/students/:id", 	"description": "get student with specific :id"},
+				{"method": "POST", 		"url": "/api/students", 		"description": "create new student with id given by server"},
+				{"method": "PUT", 		"url": "/api/students/:id", 	"description": "update student with specific :id"},
+				{"method": "DELETE", 	"url": "/api/students", 	"description": "delete all students"},
+				{"method": "DELETE", 	"url": "/api/students/:id", 	"description": "delete student with specific :id"}
+			],
+			"dev": [
+				{"method": "GET", 		"url": "/api/dev/crashme", 		"description": "crash the server on purpose"},
+				{"method": "GET", 		"url": "/api/dev/geterror", 	"description": "get an error message on purpose"}
+			]
+		}
+	},
+	"v4": {
+		"changelog": "Improved Error Handling System",
+		"api": {
+			"students": [
+				{"method": "GET", 		"url": "/api/students", 		"description": "get all students"},
+				{"method": "GET", 		"url": "/api/students/:id", 	"description": "get student with specific :id"},
+				{"method": "POST", 		"url": "/api/students", 		"description": "create new student with id given by server"},
+				{"method": "PUT", 		"url": "/api/students/:id", 	"description": "update student with specific :id"},
+				{"method": "DELETE", 	"url": "/api/students", 	"description": "delete all students"},
+				{"method": "DELETE", 	"url": "/api/students/:id", 	"description": "delete student with specific :id"}
+			],
+			"dev": [
+				{"method": "GET", 		"url": "/api/dev/crashme", 		"description": "crash the server on purpose"},
+				{"method": "GET", 		"url": "/api/dev/geterror", 	"description": "get an error message on purpose"}
+			]
+		}
+	}
+}

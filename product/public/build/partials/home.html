@@ -1,0 +1,7 @@
+<div ng-if="!authenticated">
+	<a ui-sref="login" ui-sref-active="active">Login</a>
+</div>
+<div ng-if="authenticated">
+	<button ng-click="logout()">Logout</button>
+</div>
+<h1>{{message}}</h1>
