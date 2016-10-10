@@ -12,8 +12,21 @@ exports.getSelf = function(req, res, next) {
                 msg: infoMessage
             });
 
+		User.findOne({email: account.email}, function(err, user) {
+			if (err) return next(err);
+			if (!user)
+				return res.status(500).json({
+					code: "Failed Database Query",
+					msg: "cant find user"
+				});
 
-		res.status(200).end("Hi you are in");
+			res.status(200).json({
+				code: "Successful get user",
+				data: user
+			});
+		})
+
+		
 
 	})(req, res, next);
 }

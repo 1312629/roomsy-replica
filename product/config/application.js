@@ -39,7 +39,10 @@ app.use(validator());
 app.use(passport.initialize());
 app.use(config.routing.appRouter);
 app.use(function(err, req, res, next) {
-    res.end(err);
+    res.status(500).json({
+        msg: "Unhandled error",
+        error: err
+    });
 })
 
 //------------------------------------------------------------------------

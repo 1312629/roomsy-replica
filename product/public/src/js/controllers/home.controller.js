@@ -2,7 +2,11 @@ appControllers.controller('homeController', ['$scope', '$state', 'authService', 
 	function($scope, $state, authService, apiService) {
 
 		$scope.authenticated = false;
-		$scope.userInfo = '';
+		$scope.message = 'You\'re not logged in';
+		$scope.logout = function() {
+			Cookies.remove('token');
+			$state.reload();
+		}
 
 		apiService.getSelf(function(err, result) {
 
@@ -11,7 +15,7 @@ appControllers.controller('homeController', ['$scope', '$state', 'authService', 
 
 			console.log(result);
 			$scope.authenticated = true;
-			$scope.userInfo = result;
+			$scope.message = 'Welcom ' + result.data.firstname + ' ' + result.data.lastname;
 			$scope.$apply();
 		})
 	}

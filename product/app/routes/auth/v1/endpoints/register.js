@@ -11,7 +11,7 @@ module.exports = function (req, res, next) {
         'firstname': {notEmpty: true},
         'lastname': {notEmpty: true},
         'country': {notEmpty: true},
-        'size': {notEmpty: true},
+        'size': {notEmpty: true, isInt: true},
         'phone': {notEmpty: true}
     });
 
@@ -25,18 +25,35 @@ module.exports = function (req, res, next) {
 	passport.authenticate('local-register', function(err, account, infoMessage) {
 
     	if (err) return next(err);
-    	if (!user)
+    	if (!account)
     		return res.status(400).json({
     			code: 'Failed Registration',
     			msg: infoMessage
-    		});
+    		});   
 
-        
+        var user = new User({
+            email: req.body.email,
+            firstname: req.body.firstname,
+            lastname: req.body.lastname,
+            country: req.body.country,
+            size: req.body.size,
+            phone: req.body.phone
+        });
 
-    	res.status(200).json({
-    		code: "Successful Authentication",
-    		data: { token: jwt.sign({userId: user._id}, jwtConfig.secret, { algorithm: jwtConfig.algorithm }) } 
-    	});
+        user.save(function(err){
+            if (err)
+                return res.status(500).json({
+                    code: 'Failed Registration',
+                    msg: 'Error saving user'
+                });
+
+            res.status(200).json({
+                code: "Successful Authentication",
+                data: { token: jwt.sign({userId: account._id}, jwtConfig.secret, { algorithm: jwtConfig.algorithm }) } 
+            });  
+        })
+
+    	
 
   	})(req, res, next);
 }
