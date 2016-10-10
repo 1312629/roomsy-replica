@@ -1,12 +1,12 @@
 var app = angular.module('app', ['ui.router', 'appComponents', 'appControllers', 'appServices']);
 
-app.config(['$stateProvider', '$urlRouterProvider',
+app.config(['$stateProvider',
   function($stateProvider) {
     // An array of state definitions
     var states = [
       {
         name: 'home', 
-        url: '/',
+        url: '',
         component: 'home'
       },
 
@@ -32,7 +32,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
     states.forEach((state) => {
       $stateProvider.state(state);
     });
-    
   }
 ]);
 
@@ -73,8 +72,8 @@ appControllers.controller('loginController', ['$scope', '$state', 'authService',
 			authService
 				.login($scope.email, $scope.password, function(err, data) {
 					if (err) {
-						window.alert(err.response.message);
-
+						console.log(err);
+						return;
 					}
 
 					console.log('Success');
@@ -111,11 +110,7 @@ appServices.factory('authService', ['$http',
 				promise.then(
 					function(data) { callback(null, data) },
 					function(xhr, textStatus, errorThrown) { // xhr - XMLHttpRequest 
-						callback({
-							
-							status: { xhr.status : xhr. statusText },
-							response: xhr.responseJSON,
-						} , null) 
+						callback(xhr.responseJSON, null) 
 					}
 				);
 			}

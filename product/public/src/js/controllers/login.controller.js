@@ -8,8 +8,8 @@ appControllers.controller('loginController', ['$scope', '$state', 'authService',
 			authService
 				.login($scope.email, $scope.password, function(err, data) {
 					if (err) {
-						window.alert(err.response.message);
-
+						console.log(err);
+						return;
 					}
 
 					console.log('Success');

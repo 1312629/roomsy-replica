@@ -21,11 +21,7 @@ appServices.factory('authService', ['$http',
 				promise.then(
 					function(data) { callback(null, data) },
 					function(xhr, textStatus, errorThrown) { // xhr - XMLHttpRequest 
-						callback({
-							
-							status: { xhr.status : xhr. statusText },
-							response: xhr.responseJSON,
-						} , null) 
+						callback(xhr.responseJSON, null) 
 					}
 				);
 			}

@@ -7,10 +7,15 @@ module.exports = function (req, res, next) {
 	passport.authenticate('local-register', function(err, user, infoMessage) {
 
     	if (err) return next(err);
-    	if (!user) return res.status(400).json({status: 'error', code: 'bad request', msg: infoMessage});
+    	if (!user)
+    		return res.status(400).json({
+    			code: 'Failed Registration',
+    			msg: infoMessage
+    		});
 
     	res.status(200).json({
-    		token: jwt.sign({userId: user._id}, jwtConfig.secret) 
+    		code: "Successful Authentication",
+    		data: { token: jwt.sign({userId: user._id}, jwtConfig.secret) } 
     	});
 
   	})(req, res, next);

@@ -5,13 +5,19 @@ var passport = require('passport'),
 
 module.exports = function (req, res, next) {
 
-	passport.authenticate('local-login', function(err, user, infoMessage) {
+	passport.authenticate('local-login', function(err, account, infoMessage) {
 
     	if (err) return next(err);
-    	if (!user) return res.status(401).json({status: 'error', code: 'unauthorized', infoMessage});
+    	if (!account) 
+            return res.status(401).json({
+                code: "Failed Authentication",
+                msg: infoMessage
+            });
+    		
 
     	res.status(200).json({
-    		token: jwt.sign({userId: user._id}, jwtConfig.secret) 
+            code: "Successful Authentication",
+    		data: { token: jwt.sign({userId: account._id}, jwtConfig.secret) }
     	});
 
   	})(req, res, next);	

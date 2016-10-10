@@ -1,6 +1,6 @@
 var passport = require('passport'),
     LocalStrategy = require('passport-local'),
-    Account = Utils.getModel('Account');
+    Account = Utils.getDataModel('Account');
 
 // =========================================================================
 // LOCAL STRATEGY SETUP
@@ -41,8 +41,8 @@ module.exports = function() {
             Account.findOne({ email: email }, function(err, account) {
 
                 if (err) return done(err);
-                if (!account) return done(null, false, { message: 'No account found.' });
-                if (!account.validPassword(password)) return done(null, false, { message: 'Oops! Wrong password.' });
+                if (!account) return done(null, false, 'No account was found.');
+                if (!account.validPassword(password)) return done(null, false, 'Oops! Wrong password.');
 
                 return done(null, account);
             })

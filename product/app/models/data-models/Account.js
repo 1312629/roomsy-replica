@@ -6,6 +6,10 @@ var accountSchema = mongoose.Schema({
 
     email        : String,
     password     : String
+}, 
+//Schema optioms
+{
+	timestamps: true
 });
 
 //------------------------------------------------------------------------

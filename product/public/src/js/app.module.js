@@ -1,12 +1,12 @@
 var app = angular.module('app', ['ui.router', 'appComponents', 'appControllers', 'appServices']);
 
-app.config(['$stateProvider', '$urlRouterProvider',
+app.config(['$stateProvider',
   function($stateProvider) {
     // An array of state definitions
     var states = [
       {
         name: 'home', 
-        url: '/',
+        url: '',
         component: 'home'
       },
 
@@ -32,7 +32,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
     states.forEach((state) => {
       $stateProvider.state(state);
     });
-    
   }
 ]);
 

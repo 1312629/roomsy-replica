@@ -21,6 +21,12 @@ module.exports = {
                 path.join('models', modelName)
             ));
     },
+
+    getDataModel: function(modelName) {
+        return this.getModel(
+                path.join('data-models', modelName)
+            );
+    },
     
     getRouter: function(routeName) { //require the route handler in 'app/routes'
         return require(

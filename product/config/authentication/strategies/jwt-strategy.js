@@ -2,7 +2,7 @@ var passport = require('passport'),
     JwtStrategy = require('passport-jwt').Strategy,
     ExtractJwt = require('passport-jwt').ExtractJwt,
     jwtConfig = Utils.getConfig('authentication/jwt-options'),
-    Account = Utils.getModel('Account');
+    Account = Utils.getDataModel('Account');
 
 module.exports = function() {
 
