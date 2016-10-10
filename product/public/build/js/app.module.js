@@ -1,12 +1,15 @@
 var app = angular.module('app', ['ui.router', 'appComponents', 'appControllers', 'appServices']);
 
-app.config(['$stateProvider',
-  function($stateProvider) {
+app.config(['$stateProvider', '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise("/");
+
     // An array of state definitions
     var states = [
       {
         name: 'home', 
-        url: '',
+        url: '/',
         component: 'home'
       },
 
@@ -36,8 +39,6 @@ app.config(['$stateProvider',
 ]);
 
 
-
-
 var appComponents = angular.module('appComponents', ['appControllers']);
 var appControllers = angular.module('appControllers', []);
 
@@ -46,7 +47,8 @@ appComponents.component('about', {
   template:  '<h3>Hello i am tuan</h3>'
 })
 appComponents.component('home', {
-  templateUrl:  'partials/home.html'
+  templateUrl:  'partials/home.html',
+  controller: 'homeController'
 })
 appComponents.component('login', {
   templateUrl:  'partials/login.html',
@@ -56,28 +58,44 @@ appComponents.component('register', {
   templateUrl:  'partials/register.html',
   controller: 'registerController'
 })
-appControllers.controller('authController', ['$scope',
-	function($scope) {
+appControllers.controller('homeController', ['$scope', '$state', 'authService', 'apiService',
+	function($scope, $state, authService, apiService) {
 
+		$scope.authenticated = false;
+		$scope.userInfo = '';
+
+		apiService.getSelf(function(err, result) {
+
+			if (err)
+				return console.log('error loading user info:\n', err);
+
+			
+			alert('hehehe');
+			console.log(result);
+			$scope.authenticated = true;
+			$scope.userInfo = result;
+			$scope.$apply();
+		})
 	}
 ]);
-
 appControllers.controller('loginController', ['$scope', '$state', 'authService',
 	function($scope, $state, authService) {
 		$scope.email = '';
 		$scope.password = '';
 
+
 		$scope.login = function() {
 
 			authService
-				.login($scope.email, $scope.password, function(err, data) {
-					if (err) {
-						console.log(err);
-						return;
-					}
+				.login($scope.email, $scope.password, function(err, result) {
 
-					console.log('Success');
-					console.log(data);
+					if (err) return window.alert(err.msg);
+
+
+					var token = result.data.token; console.log(token);
+
+					Cookies.set('token', token, { expires: 365 });
+					$state.go('home');
 				})
 		}
 	}
@@ -87,12 +105,40 @@ appControllers.controller('registerController', ['$scope',
 
 	}
 ]);
+appServices.factory('apiService', ['$http', 
+	function($http) {
+
+		var apiLogic = {
+			
+			getSelf: function(callback) {
+
+				var promise = new Promise((fullfill, reject) => {
+					$.ajax({
+						url: 'http://127.0.0.1:1337/api/self',
+						method: 'GET',
+						success: fullfill,
+						error: reject
+					})
+				});
+
+				promise.then(
+					function(result) { callback(null, result) },
+					function(xhr, textStatus, errorThrown) { // xhr - XMLHttpRequest 
+						callback(xhr, null);
+					}
+				);
+			}
+		};
+
+		return apiLogic;
+	}
+]);
 appServices.factory('authService', ['$http', 
 	function($http) {
 
 		var authLogic = {
+			
 			login: function(email, password, callback) {
-
 				var promise = new Promise((fullfill, reject) => {
 					$.ajax({
 						url: 'http://127.0.0.1:1337/auth/login',
@@ -108,7 +154,7 @@ appServices.factory('authService', ['$http',
 				});
 
 				promise.then(
-					function(data) { callback(null, data) },
+					function(result) { callback(null, result) },
 					function(xhr, textStatus, errorThrown) { // xhr - XMLHttpRequest 
 						callback(xhr.responseJSON, null) 
 					}

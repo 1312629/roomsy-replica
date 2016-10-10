@@ -13,7 +13,7 @@ var apiDirectory = Utils.app_path('routes/api'),
 							router: require(path.join(apiDirectory, vName, 'apiRouter'))
 						}
 					});
-
+					
 apiMounts.forEach((mount) => {
 	apiRouter.use(mount.path, mount.router);
 });

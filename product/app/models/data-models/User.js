@@ -1,11 +1,15 @@
 var mongoose = require('mongoose'),
     bcrypt = require('bcrypt');
 
-// Account Schema
-var accountSchema = mongoose.Schema({
+// User Schema
+var userSchema = mongoose.Schema({
 
-    email        : String,
-    password     : String
+    firstname	: String,
+    lastname	: String,
+    email		: String,
+    country		: String,
+    size		: Number,
+    phone		: String
 }, 
 //Schema optioms
 {
@@ -15,15 +19,15 @@ var accountSchema = mongoose.Schema({
 //------------------------------------------------------------------------
 // Schema Methods 
 // generating a hash
-accountSchema.statics.generateHash = function(password) {
+userSchema.statics.generateHash = function(password) {
     return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
 };
 
 // checking if password is valid
-accountSchema.methods.validPassword = function(password) {
+userSchema.methods.validPassword = function(password) {
     return bcrypt.compareSync(password, this.password);
 };
 
 //------------------------------------------------------------------------
-var Model = mongoose.model('Account', accountSchema);
+var Model = mongoose.model('User', userSchema);
 module.exports = Model;

@@ -8,11 +8,12 @@ module.exports = function() {
 
     passport.use('jwt', new JwtStrategy({
             secretOrKey: jwtConfig.secret,
-            jwtFromRequest: ExtractJwt.fromAuthHeader()
+            jwtFromRequest: function(req) { console.log(req.cookies); return req.cookies['token'] },
+            algorithms: [jwtConfig.algorithm]
         },
         function(jwt_payload, done) {
 
-            User.findById(jwt_payload.userId, function(err, account) {
+            Account.findById(jwt_payload.userId, function(err, account) {
                 if (err) return done(err);
                 if (!account) return done(null, false, 'Invalid Token');
                 return done(null, account);

@@ -1,3 +1,4 @@
 appComponents.component('home', {
-  templateUrl:  'partials/home.html'
+  templateUrl:  'partials/home.html',
+  controller: 'homeController'
 })

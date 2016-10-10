@@ -2,8 +2,8 @@ appServices.factory('authService', ['$http',
 	function($http) {
 
 		var authLogic = {
+			
 			login: function(email, password, callback) {
-
 				var promise = new Promise((fullfill, reject) => {
 					$.ajax({
 						url: 'http://127.0.0.1:1337/auth/login',
@@ -19,7 +19,7 @@ appServices.factory('authService', ['$http',
 				});
 
 				promise.then(
-					function(data) { callback(null, data) },
+					function(result) { callback(null, result) },
 					function(xhr, textStatus, errorThrown) { // xhr - XMLHttpRequest 
 						callback(xhr.responseJSON, null) 
 					}

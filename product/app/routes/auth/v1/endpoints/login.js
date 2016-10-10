@@ -17,7 +17,7 @@ module.exports = function (req, res, next) {
 
     	res.status(200).json({
             code: "Successful Authentication",
-    		data: { token: jwt.sign({userId: account._id}, jwtConfig.secret) }
+    		data: { token: jwt.sign({userId: account._id}, jwtConfig.secret, { algorithm: jwtConfig.algorithm }) }
     	});
 
   	})(req, res, next);	

@@ -1,8 +1,8 @@
 var express = require('express'),
-    apiRouter = express.Router();
-//     studentsRoutes = require('./routes/students');
+    apiRouter = express.Router(),
+    usersRoutes = require('./endpoints/users');
 
-// apiRouter.get("/students", studentsRoutes.get);
+apiRouter.get("/users/self", usersRoutes.getSelf);
 // apiRouter.get("/students/:id", studentsRoutes.getOne);
 // apiRouter.post("/students", studentsRoutes.post);
 // apiRouter.put("/students/:id", studentsRoutes.put);

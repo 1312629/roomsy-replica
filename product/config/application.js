@@ -3,6 +3,7 @@ var path = require('path'),
 
 //------------------------------------------------------------------------
 var express         = require('express'),
+    cookieParser    = require('cookie-parser'),
     bodyParser      = require('body-parser'),
     morgan          = require('morgan'),
     passport        = require('passport');
@@ -29,9 +30,11 @@ var config = {
 //------------------------------------------------------------------------
 //Express Middlewares stack
 app.use(morgan('dev'));
+app.use(express.static(path.join(Utils.root_path, 'public', 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(Utils.root_path, 'public', 'build')));
+app.use(cookieParser(config.authentication.secret));
+app.use(function(req, res, next) {console.log(req.cookies); next()})
 app.use(passport.initialize());
 app.use(config.routing.appRouter);
 

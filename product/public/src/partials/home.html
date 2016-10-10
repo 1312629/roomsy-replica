@@ -1,2 +1,7 @@
-<a ui-sref="login" ui-sref-active="active">Login</a>
-<h1>Hello, it's me</h1>
+<div ng-if="!authenticated">
+	<a ui-sref="login" ui-sref-active="active">Login</a>
+</div>
+<div ng-if="authenticated">
+	<a ui-sref="logout" ui-sref-active="active">Logout</a>
+</div>
+<h1>Hello {{userInfo}}</h1>
