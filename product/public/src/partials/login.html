@@ -1,4 +1,63 @@
-<input type="text" ng-model="email" placeholder="email">
+<style>
+  body{
+    height: 100%;
+    background-color: #fff;
+    font-family: helvetica;
+    padding: 0 15px;
+  }
+  .main_content {
+    margin: 100px auto;
+    width: 33.33333333333333333333%;
+    text-align: center;
+    padding: 0 15px;
+  }
+  .main_content h2{
+    font-size: 30px;
+    margin: 20px 0 10px;
+    line-height: 1.1;
+    font-weight: 300;
+  }
+  #btLogin{
+    background-image: -webkit-linear-gradient(top,#337ab7 0,#265a88 100%);
+    background-image: -o-linear-gradient(top,#337ab7 0,#265a88 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#337ab7),to(#265a88));
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+  }
+  #btLogin:hover{
+    background-image: none;
+    background-color: #265a88;
+  }
+  #new-footer{
+    text-align: center;
+    color: #26323f;
+    height: 60px;
+    margin-top: 80px;
+    display: inline-block;
+    width: 100%;
+    padding: 0 15px;
+  }
+</style>
+<!-- <input type="text" ng-model="email" placeholder="email">
 <input type="password" ng-model="password" placeholder="password">
 <button ng-click="login()">Login</button>
-<a ui-sref="register" ui-sref-active="active">Dont'have an account? Sign-up with us!</a>
+<a ui-sref="register" ui-sref-active="active">Dont'have an account? Sign-up with us!</a> -->
+<button id="btnHelp" class="grv-tab grv-tab-rectangle grv-tab-light-colors">Click Here for Help</button>
+<div class="main_content">
+  <a href="home.html">
+    <img src="https://v2.roomsy.com//images/roomsy-logo-big.jpg" />
+  </a>
+  <h2>Roomsy Login</h2>
+  <div class="form-group">
+    <input type="email" class="form-control" ng-model="email" name="email" id="email" placeholder="Email" maxlength="80" required />
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" ng-model="password" name="password" id="password" placeholder="Password" maxlength="80" required/>
+  </div>
+  <div class="form-group">
+    <input class="btn btn-lg btn-primary btn-block" ng-click="login()" id="btLogin" type="button" name="btLogin" value="Log In">
+  </div>
+  <a ui-sref="forgot_password" ui-sref-active="active">Forgot Password?</a>
+  <br />
+  <a ui-sref="register" ui-sref-active="active">Don't have an account? Sign-up with us!</a>
+</div>
+<div id="new-footer">Roomsy Inc. © 2016</div>

@@ -3,15 +3,16 @@ var gulp = require('gulp'),
 
 
 //Compress changed images
-gulp.task('imagemin', function() {
-  
+gulp.task('imagemin', function(cb) {
+
   var imgSrc = './public/src/images/**/*',
       imgDst = './public/build/images';
 
   gulp.src(imgSrc)
     .pipe(plugins.changed(imgDst))
     .pipe(plugins.imagemin())
-    .pipe(gulp.dest(imgDst));
+    .pipe(gulp.dest(imgDst))
+    .on('end');
 });
 
 //Minify html
@@ -21,7 +22,7 @@ gulp.task('htmlmin', function() {
       htmlDst = './public/build';
 
   gulp.src(htmlSrc)
-    .pipe(plugins.changed(htmlDst))
+    // .pipe(plugins.changed(htmlDst))
     // .pipe(plugins.minifyHtml())
     .pipe(gulp.dest(htmlDst));
 });
@@ -53,7 +54,7 @@ gulp.task('cssmin', function() {
 });
 
 //Automate all task
-gulp.task('build', ['imagemin', 'htmlmin', 'jsmin', 'cssmin']);
+gulp.task('build', ['htmlmin', 'jsmin', 'cssmin']);
 gulp.task('watch', function() {
     //Watch for HTML changes
     gulp.watch(['./public/src/partials/*.html', './public/src/*.html'], ['htmlmin']);
@@ -65,7 +66,7 @@ gulp.task('watch', function() {
     gulp.watch('./public/src/css/**/*.css', ['cssmin']);
 
     //Watch for Images changes
-    gulp.watch('./public/src/images/**/*', ['imagemin']);
+    // gulp.watch('./public/src/images/**/*', ['imagemin']);
 })
 
 

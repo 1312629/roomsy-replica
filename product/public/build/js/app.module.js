@@ -8,8 +8,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
     // An array of state definitions
     var states = [
       {
-        name: 'home', 
-        url: '/',
+        name: 'home',
+        url: '',
         component: 'home'
       },
 
@@ -29,6 +29,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
         name: 'login',
         url: '/login',
         component: 'login'
+      },
+
+      {
+        name: 'forgot_password',
+        url: '/forgot_password',
+        component: 'forgot_password'
       }
     ];
 
@@ -38,7 +44,6 @@ app.config(['$stateProvider', '$urlRouterProvider',
   }
 ]);
 
-
 var appComponents = angular.module('appComponents', ['appControllers']);
 var appControllers = angular.module('appControllers', []);
 
@@ -46,6 +51,11 @@ var appServices = angular.module('appServices', []);
 appComponents.component('about', {
   template:  '<h3>Hello i am tuan</h3>'
 })
+appComponents.component('forgot_password', {
+  templateUrl:  'partials/forgot_password.html',
+  controller: 'forgot_passwordController'
+})
+
 appComponents.component('home', {
   templateUrl:  'partials/home.html',
   controller: 'homeController'
@@ -58,6 +68,13 @@ appComponents.component('register', {
   templateUrl:  'partials/register.html',
   controller: 'registerController'
 })
+appControllers.controller('forgot_passwordController', ['$scope', '$state', 'authService',
+	function($scope, $state, authService) {
+		$scope.email = '';
+
+	}
+]);
+
 appControllers.controller('homeController', ['$scope', '$state', 'authService', 'apiService',
 	function($scope, $state, authService, apiService) {
 

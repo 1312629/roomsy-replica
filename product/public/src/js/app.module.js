@@ -8,8 +8,8 @@ app.config(['$stateProvider', '$urlRouterProvider',
     // An array of state definitions
     var states = [
       {
-        name: 'home', 
-        url: '/',
+        name: 'home',
+        url: '',
         component: 'home'
       },
 
@@ -29,6 +29,12 @@ app.config(['$stateProvider', '$urlRouterProvider',
         name: 'login',
         url: '/login',
         component: 'login'
+      },
+
+      {
+        name: 'forgot_password',
+        url: '/forgot_password',
+        component: 'forgot_password'
       }
     ];
 
@@ -37,4 +43,3 @@ app.config(['$stateProvider', '$urlRouterProvider',
     });
   }
 ]);
-
