@@ -32,9 +32,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       },
 
       {
-        name: 'forgot_password',
-        url: '/forgot_password',
-        component: 'forgot_password'
+        name: 'forgotPassword',
+        url: '/forgotPassword',
+        component: 'forgotPassword'
       }
     ];
 
@@ -51,9 +51,9 @@ var appServices = angular.module('appServices', []);
 appComponents.component('about', {
   template:  '<h3>Hello i am tuan</h3>'
 })
-appComponents.component('forgot_password', {
-  templateUrl:  'partials/forgot_password.html',
-  controller: 'forgot_passwordController'
+appComponents.component('forgotPassword', {
+  templateUrl:  'partials/forgotPassword.html',
+  controller: 'forgotPasswordController'
 })
 
 appComponents.component('home', {
@@ -68,7 +68,7 @@ appComponents.component('register', {
   templateUrl:  'partials/register.html',
   controller: 'registerController'
 })
-appControllers.controller('forgot_passwordController', ['$scope', '$state', 'authService',
+appControllers.controller('forgotPasswordController', ['$scope', '$state', 'authService',
 	function($scope, $state, authService) {
 		$scope.email = '';
 

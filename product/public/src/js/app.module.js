@@ -32,9 +32,9 @@ app.config(['$stateProvider', '$urlRouterProvider',
       },
 
       {
-        name: 'forgot_password',
-        url: '/forgot_password',
-        component: 'forgot_password'
+        name: 'forgotPassword',
+        url: '/forgotPassword',
+        component: 'forgotPassword'
       }
     ];
 
